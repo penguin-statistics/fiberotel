@@ -1,5 +1,7 @@
 # Fiber OpenTelemetry
 
+> This repo is forked from https://github.com/psmarcin/fiber-opentelemetry
+
 OpenTelemetry trace middleware for [Fiber](https://github.com/gofiber/fiber) that adds traces to requests.
 
 ### Table of Contents
@@ -24,7 +26,7 @@ import (
     "github.com/gofiber/fiber/v2"
     "go.opentelemetry.io/otel/api/trace"
     "go.opentelemetry.io/otel/label"
-    fiberOpentelemetry "github.com/psmarcin/fiber-opentelemetry"
+    fiberOpentelemetry "github.com/penguin-statistics/fiber-opentelemetry"
 )
 ```
 

@@ -1,4 +1,4 @@
-module github.com/psmarcin/fiber-opentelemetry
+module github.com/penguin-statistics/fiberotel
 
 go 1.15
 

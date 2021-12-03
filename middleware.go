@@ -1,4 +1,4 @@
-package fiber_otel
+package fiberotel
 
 import (
 	"bytes"
@@ -13,7 +13,7 @@ import (
 
 const LocalsCtxKey = "otel-ctx"
 
-var Tracer = otel.Tracer("fiber-otel-router")
+var Tracer = otel.Tracer("fiberotel")
 
 // New creates a new middleware handler
 func New(config ...Config) fiber.Handler {
@@ -37,9 +37,6 @@ func New(config ...Config) fiber.Handler {
 				trace.WithAttributes(semconv.HTTPSchemeKey.String(c.Protocol())),
 				trace.WithAttributes(semconv.NetTransportTCP),
 				trace.WithSpanKind(trace.SpanKindServer),
-				// TODO:
-				// - x-forwarded-for
-				// -
 			},
 			cfg.TracerStartAttributes,
 		)
@@ -74,9 +71,7 @@ func New(config ...Config) fiber.Handler {
 func concatSpanOptions(sources ...[]trace.SpanStartOption) []trace.SpanStartOption {
 	var spanOptions []trace.SpanStartOption
 	for _, source := range sources {
-		for _, option := range source {
-			spanOptions = append(spanOptions, option)
-		}
+		spanOptions = append(spanOptions, source...)
 	}
 
 	return spanOptions

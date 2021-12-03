@@ -1,12 +1,13 @@
-package fiber_otel
+package fiberotel
 
 import (
 	"context"
+	"net/http/httptest"
+	"testing"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/stretchr/testify/assert"
 	"go.opentelemetry.io/otel/trace"
-	"net/http/httptest"
-	"testing"
 )
 
 func TestFromCtx(t *testing.T) {

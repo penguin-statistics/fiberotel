@@ -1,8 +1,9 @@
-package fiber_otel
+package fiberotel
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_configDefault(t *testing.T) {

@@ -1,7 +1,8 @@
-package fiber_otel
+package fiberotel
 
 import (
 	"context"
+
 	"github.com/gofiber/fiber/v2"
 	"go.opentelemetry.io/otel/trace"
 )
@@ -12,10 +13,5 @@ func FromCtx(ctx *fiber.Ctx) context.Context {
 }
 
 func SpanFromCtx(ctx *fiber.Ctx) trace.Span {
-	otelCtx := FromCtx(ctx)
-	if otelCtx == nil {
-		return trace.SpanFromContext(ctx.Context())
-	}
-
-	return trace.SpanFromContext(otelCtx)
+	return trace.SpanFromContext(FromCtx(ctx))
 }
